@@ -56,7 +56,7 @@
                     <systemPropertyVariables>
                         <userName>fhumayun</userName>
                         <accessKey>a804f4e8-d94d-4872-805e-f28766906dca</accessKey>
-                        <QA_link>"http://www.gophersport.com/category/balls-dodgeballs?r=1&hiconversion_alternate=0LS54UaI9C&hiconversion_baseline=true&hiconversion_flicker=visibility&hiconversion_flow=MTZJFB1Ii5&hiconversion_include=true&hiconversion_page=wJX810ybXu&hiconversion_test=true"</QA_link>
+                        <QA_link>http://goo.gl/7j4ykA</QA_link>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
