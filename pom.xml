@@ -12,7 +12,6 @@
 
     <build>
         <plugins>
-
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -23,6 +22,73 @@
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!-- Start amended POM entries -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                        <property>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+                        </property>
+                    </properties>
+                        <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>src/test/resources/xml/testng.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    <workingDirectory>target/</workingDirectory>
+                    <systemPropertyVariables>
+                        <userName>fhumayun</userName>
+                        <accessKey>a804f4e8-d94d-4872-805e-f28766906dca</accessKey>
+                        <QA_link>http://www.gophersport.com/category/balls-dodgeballs?r=1&hiconversion_alternate=0LS54UaI9C&hiconversion_baseline=true&hiconversion_flicker=visibility&hiconversion_flow=MTZJFB1Ii5&hiconversion_include=true&hiconversion_page=wJX810ybXu&hiconversion_test=true;</QA_link>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <!-- Include Sauce Connect plugin -->
+            <plugin>
+                <groupId>com.saucelabs.maven.plugin</groupId>
+                <artifactId>sauce-connect-plugin</artifactId>
+                <version>2.1.3</version>
+                <configuration>
+                    <sauceUsername>fhumayun</sauceUsername>
+                    <sauceAccessKey>a804f4e8-d94d-4872-805e-f28766906dca</sauceAccessKey>
+                </configuration>
+                <executions>
+                    <!-- Start Sauce Connect prior to running the integration tests -->
+                    <execution>
+                        <id>start-sauceconnct</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start-sauceconnect</goal>
+                        </goals>
+                    </execution>
+                    <!-- Stop the Sauce Connect process after the integration tests have finished -->
+                    <execution>
+                        <id>stop-sauceconnect</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop-sauceconnect</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Stop amended POM entries --
         </plugins>
     </build>
     <dependencies>
