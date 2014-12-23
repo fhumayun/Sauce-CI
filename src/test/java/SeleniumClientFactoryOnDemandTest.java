@@ -35,7 +35,7 @@ public class SeleniumClientFactoryOnDemandTest {
      */
     @Test
     public void fullRun() throws Exception {
-        webDriver.get("https://saucelabs.com/test/guinea-pig");
-        assertEquals("I am a page title - Sauce Labs", webDriver.getTitle());
+        String QA_Link = Utils.readPropertyOrEnv("QA_LINK", "");
+        webDriver.get(QA_Link);
     }
 }
