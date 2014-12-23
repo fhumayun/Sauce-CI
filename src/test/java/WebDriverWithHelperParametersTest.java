@@ -146,8 +146,8 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
         String browserVer = String.format("%-19s", browserVersion).replaceAll(" ", ".");
         System.out.println("@Test validateTitle() testing browser/version: " + browserName + browserVer + "platform: " + platform);
 
-        webDriver.get("https://saucelabs.com/test/guinea-pig");
-        assertEquals("I am a page title - Sauce Labs", webDriver.getTitle());
+        String QA_Link = Utils.readPropertyOrEnv("QA_LINK", "");
+        webDriver.get(QA_Link);
 
         webDriver.quit();
     }
