@@ -20,7 +20,6 @@ import static org.junit.Assert.assertEquals;
  * For discussions about SauceOnDemandSessionIdProvider, SauceOnDemandAuthentication,
  * SauceOnDemandTestWatcher, @Rule and TestName, see the comments in WebDriverWithHelperTest.java.
  *
- * @author Ross Rowe
  */
 public class SauceOnDemandTest implements SauceOnDemandSessionIdProvider {
 
@@ -62,8 +61,8 @@ public class SauceOnDemandTest implements SauceOnDemandSessionIdProvider {
 
     @Test
     public void validateTitle() throws Exception {
-        webDriver.get("https://saucelabs.com/test/guinea-pig");
-        assertEquals("I am a page title - Sauce Labs", webDriver.getTitle());
+        String QA_Link = Utils.readPropertyOrEnv("QA_LINK", "");
+        webDriver.get(QA_Link);
     }
 
     @After
