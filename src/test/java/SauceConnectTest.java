@@ -34,7 +34,6 @@ import static org.junit.Assert.assertEquals;
  * SauceOnDemandTestWatcher, @Rule and TestName, see the comments in
  * WebDriverWithHelperTest.java.
  *
- * @author Ross Rowe
  */
 public class SauceConnectTest implements SauceOnDemandSessionIdProvider {
     public static final int PORT = 5000;
