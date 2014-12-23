@@ -1,5 +1,5 @@
 /**
- * @author Ross Rowe
+ * Setup Class for propagating variable data across scripts
  */
 public class Utils {
 
