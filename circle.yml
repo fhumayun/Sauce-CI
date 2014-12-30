@@ -25,7 +25,7 @@ dependencies:
 
 test:
   override:
-    - ./bin/sc -u fhumayun -k a523a3f558b9c725a6986a6214ac5ea7da06f234 -f ~/sc_ready:
+    - ./bin/sc -u fhumayun -k a804f4e8-d94d-4872-805e-f28766906dca -f ~/sc_ready:
         background: true
         pwd: sc-*-linux
     # Wait for tunnel to be ready
