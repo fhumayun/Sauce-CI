@@ -75,7 +75,7 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
      * user name and access key. To use the authentication supplied by environment variables or
      * from an external file, use the no-arg {@link SauceOnDemandAuthentication} constructor.
      */
-    public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication("fhumayun", "a804f4e8-d94d-4872-805e-f28766906dca");
+    public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication("username", "accessKey");
 
     /**
      * JUnit Rule that marks Sauce Jobs as passed/failed when the test succeeds or fails.
@@ -145,7 +145,7 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
         String browserVer = String.format("%-19s", browserVersion).replaceAll(" ", ".");
         System.out.println("@Test validateTitle() testing browser/version: " + browserName + browserVer + "platform: " + platform);
 
-        String QA_Link = Utils.readPropertyOrEnv("QA_LINK", "");
+        String QA_Link = Utils.readPropertyOrEnv("QA_Link", "");
         webDriver.get(QA_Link);
 
         webDriver.quit();
