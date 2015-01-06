@@ -62,21 +62,14 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 	@Before
 	public void setUp() throws Exception {
 
-		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-		desiredCapabilities.setBrowserName(System.getenv("SELENIUM_BROWSER"));
-		desiredCapabilities.setVersion(System.getenv("SELENIUM_VERSION"));
-		desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
-		WebDriver driver = new RemoteWebDriver(
-		            new URL(("http://" + authentication.getUsername() + ":" + accessKey + "@ondemand.saucelabs.com:80/wd/hub"),
-		                desiredCapabilities));
-		/*DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("version", "17.0.1");
 		capabilities.setCapability("platform", Platform.XP);
 		capabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
 		this.webDriver = new RemoteWebDriver(
 				new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
 				capabilities);
-		this.sessionId = ((RemoteWebDriver)webDriver).getSessionId().toString();*/
+		this.sessionId = ((RemoteWebDriver)webDriver).getSessionId().toString();
 
 	}
 
