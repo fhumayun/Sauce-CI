@@ -61,11 +61,12 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 	 */
 	@Before
 	public void setUp() throws Exception {
-
+		// Start with Jenkins
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 		desiredCapabilities.setBrowserName(System.getenv("SELENIUM_BROWSER"));
 		desiredCapabilities.setVersion(System.getenv("SELENIUM_VERSION"));
-		desiredCapabilities.setVersion(System.getenv("SELENIUM_PLATFORM"));
+		desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
+		desiredCapabilities.setCapability("record-video", true);
 		//DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		//capabilities.setCapability("version", "17.0.1");
 		//capabilities.setCapability("platform", Platform.XP);
