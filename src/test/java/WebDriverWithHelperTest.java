@@ -71,9 +71,9 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 		//capabilities.setCapability("platform", Platform.XP);
 		//capabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
 		desiredCapabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
-		//this.webDriver = new RemoteWebDriver(
+		/*this.webDriver = new RemoteWebDriver(
 				new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
-				capabilities);
+				capabilities);*/
 		this.webDriver = new RemoteWebDriver(
 				new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
 				desiredCapabilities);				
