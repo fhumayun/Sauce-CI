@@ -36,7 +36,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 	 * user name and access key. To use the authentication supplied by environment variables or
 	 * from an external file, use the no-arg {@link SauceOnDemandAuthentication} constructor.
 	 */
-	public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication(username, accessKey);
+	public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication("fhumayun", "a804f4e8-d94d-4872-805e-f28766906dca");
 
 	/**
 	 * JUnit Rule which marks Sauce Jobs as passed/failed when the test succeeds or fails.
@@ -67,7 +67,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 		desiredCapabilities.setVersion(System.getenv("SELENIUM_VERSION"));
 		desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
 		WebDriver driver = new RemoteWebDriver(
-		            new URL(("http://" + username + ":" + accessKey + "@ondemand.saucelabs.com:80/wd/hub"),
+		            new URL(("http://" + authentication.getUsername() + ":" + accessKey + "@ondemand.saucelabs.com:80/wd/hub"),
 		                desiredCapabilities));
 		/*DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("version", "17.0.1");
@@ -95,7 +95,5 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 	public String getSessionId() {
 		return sessionId;
 	}
-
-
 
 }
