@@ -67,8 +67,8 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 		desiredCapabilities.setVersion(System.getenv("SELENIUM_VERSION"));
 		desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
 		WebDriver driver = new RemoteWebDriver(
-		            new URL(("http://" + username + ":" + acc + "@ondemand.saucelabs.com:80/wd/hub"),
-		                desiredCapabilities);
+		            new URL(("http://" + username + ":" + accessKey + "@ondemand.saucelabs.com:80/wd/hub"),
+		                desiredCapabilities));
 		/*DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("version", "17.0.1");
 		capabilities.setCapability("platform", Platform.XP);
