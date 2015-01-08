@@ -87,7 +87,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 	public void validateTitle() throws Exception {
 		String sessionId = ((RemoteWebDriver) webDriver).getSessionId().toString();
         System.out.println("SauceOnDemandSessionID=" + sessionId);
-        String QA_Link = Utils.readPropertyOrEnv("QA_Link", "http://goo.gl/BFRUlN");
+        String QA_Link = Utils.readPropertyOrEnv("QA_Link", "");
         webDriver.get(QA_Link);
 		/*webDriver.get("https://saucelabs.com/test/guinea-pig");
 		assertEquals("I am a page title - Sauce Labs", webDriver.getTitle()); */
