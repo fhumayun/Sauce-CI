@@ -15,17 +15,8 @@ import static org.junit.Assert.assertEquals;
 
 
 /**
- * This WebDriverWithHelperTest test shows you how to run your Selenium tests with
- * <a href="http://saucelabs.com/ondemand">Sauce OnDemand</a>.
+ * QA Automation for serial url checks across browsers.
  *
- * This test uses {@link RemoteWebDriver} and also includes the <a href="https://github.com/saucelabs/sauce-java/tree/master/junit">Sauce JUnit</a>
- * helper classes, which use the Sauce REST API to mark each Sauce Job (each test) as passed/failed.
- *
- * In order to use the {@link SauceOnDemandTestWatcher} to see if the tests pass or fail
- * in the Sauce Jobs Report in your Jenkins projects, each test must implement the
- * {@link SauceOnDemandSessionIdProvider} interface as discussed in the code comments below.
- *
- * @author Ross Rowe
  */
 public class QALinkChecker implements SauceOnDemandSessionIdProvider {
 
@@ -68,14 +59,8 @@ public class QALinkChecker implements SauceOnDemandSessionIdProvider {
 		desiredCapabilities.setVersion(System.getenv("SELENIUM_VERSION"));
 		desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
 		desiredCapabilities.setCapability("record-video", true);
-		//DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		//capabilities.setCapability("version", "17.0.1");
-		//capabilities.setCapability("platform", Platform.XP);
-		//capabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
 		desiredCapabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
-		/*this.webDriver = new RemoteWebDriver(
-				new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
-				capabilities);*/
+
 		this.webDriver = new RemoteWebDriver(
 				new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
 				desiredCapabilities);				
@@ -89,8 +74,6 @@ public class QALinkChecker implements SauceOnDemandSessionIdProvider {
         System.out.println("SauceOnDemandSessionID=" + sessionId);
         String QA_Link = Utils.readPropertyOrEnv("QA_Link", "");
         webDriver.get(QA_Link);
-		/*webDriver.get("https://saucelabs.com/test/guinea-pig");
-		assertEquals("I am a page title - Sauce Labs", webDriver.getTitle()); */
 	}
 
 	@After
