@@ -27,7 +27,7 @@ import static org.junit.Assert.assertEquals;
  *
  * @author Ross Rowe
  */
-public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
+public class QALinkChecker implements SauceOnDemandSessionIdProvider {
 
 	private WebDriver webDriver;
 	private String sessionId;
