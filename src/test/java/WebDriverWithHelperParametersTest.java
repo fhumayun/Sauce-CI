@@ -145,7 +145,7 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
         String browserVer = String.format("%-19s", browserVersion).replaceAll(" ", ".");
         System.out.println("@Test validateTitle() testing browser/version: " + browserName + browserVer + "platform: " + platform);
 
-        String QA_Link = Utils.readPropertyOrEnv(QA_Link, "http://goo.gl/BFRUlN");
+        String QA_Link = Utils.readPropertyOrEnv("QA_Link", "http://goo.gl/BFRUlN");
         webDriver.get(QA_Link);
 
         webDriver.quit();
