@@ -20,7 +20,7 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionIdProvider {
+public class MultiQALinkCheck implements SauceOnDemandSessionIdProvider {
 
 	private WebDriver webDriver;
 	private static DesiredCapabilities capabilities;
@@ -97,7 +97,7 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
 	}
 
 
-	public WebDriverWithHelperParametersTest(String s1, String s2, String s3) {
+	public MultiQALinkCheck(String s1, String s2, String s3) {
 		browser = s1;
 		browserVersion = s2;
 		platform = s3;
