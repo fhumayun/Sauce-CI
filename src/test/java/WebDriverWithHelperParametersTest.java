@@ -19,6 +19,26 @@ import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 
+
+/**
+ * This WebDriverWithHelperParametersTest modifies WebDriverWithHelperTest by adding JUnit
+ * Parameterized runners and a three argument constructor to loop through an array and
+ * run tests against all of the browser/platform combinations specified in the array.
+ *
+ * Each array element (browser/platform combination) runs as a new Sauce job that displays in
+ * the Jenkins project's Sauce Jobs Report with pass/fail results. A job detail report with
+ * video is provided for each of these Sauce jobs.
+ *
+ * The pass/fail result for each test is created via the <a href="https://github.com/saucelabs/sauce-java/tree/master/junit">Sauce JUnit</a> helper classes,
+ * which use the Sauce REST API to mark each Sauce job (each test) as passed/failed.
+ *
+ * In order to use the {@link SauceOnDemandTestWatcher} to see if the tests pass or fail
+ * in the Sauce Jobs Report in your Jenkins projects, this test must implement the
+ * {@link SauceOnDemandSessionIdProvider} interface as discussed in the code comments below.
+ *
+ * @author Ross Rowe
+ * @author Bernie Cohen - modified to support parameterized testing against multiple environments
+ */
 @RunWith(Parameterized.class)
 public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionIdProvider {
 
@@ -26,7 +46,6 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
 	private static DesiredCapabilities capabilities;
 	private static Platform ANDROID, LINUX, MAC, UNIX, VISTA, WINDOWS, XP, platformValue;
 	private String browser, browserVersion, platform, sessionId = "";
-
 
 
 	// Create an array of available platforms from the "private static Platform" declaration above
@@ -56,7 +75,8 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
 	 * user name and access key. To use the authentication supplied by environment variables or
 	 * from an external file, use the no-arg {@link SauceOnDemandAuthentication} constructor.
 	 */
-	public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication("userName", "accessKey");
+	public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication("fhumayun", "a804f4e8-d94d-4872-805e-f28766906dca");
+
 
 	/**
 	 * JUnit Rule that marks Sauce Jobs as passed/failed when the test succeeds or fails.
@@ -113,6 +133,7 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
 	@Test
 	@Ignore
 	public void validateTitle() throws Exception {
+
 		capabilities = new DesiredCapabilities(browser, browserVersion, setPlatformCapabilities(platform));
 		capabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
 		this.webDriver = new RemoteWebDriver(
@@ -125,8 +146,8 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
 		String browserVer = String.format("%-19s", browserVersion).replaceAll(" ", ".");
 		System.out.println("@Test validateTitle() testing browser/version: " + browserName + browserVer + "platform: " + platform);
 
-		String QA_Link = Utils.readPropertyOrEnv("QA_Link","");
-		webDriver.get(QA_Link);
+		webDriver.get("https://saucelabs.com/test/guinea-pig");
+		assertEquals("I am a page title - Sauce Labs", webDriver.getTitle());
 
 		webDriver.quit();
 	}
