@@ -69,11 +69,12 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 		desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
 		desiredCapabilities.setCapability("record-video", true);
 		//desiredCapabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
-		desiredCapabilities.setCapability("tags",System.getProperty("TestedBy"));
-		desiredCapabilities.setCapability("name", "HiC_QA_URL");
-		System.out.println("userName=" + System.getenv("userName"));
-		System.out.println("accessKey=" + System.getenv("accessKey"));
-		System.out.println("TestedBy" + System.getenv("TestedBy"));
+		desiredCapabilities.setCapability("tags",System.getenv("TestedBy"));
+		desiredCapabilities.setCapability("name",System.getenv("jobName"));
+		System.out.println("User Name =" + System.getenv("userName"));
+		System.out.println("Access Key =" + System.getenv("accessKey"));
+		System.out.println("Job Name =" + System.getenv("jobName"));
+		System.out.println("Tested By =" + System.getenv("TestedBy"));
         this.webDriver = new RemoteWebDriver(
                 new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
                 desiredCapabilities);
