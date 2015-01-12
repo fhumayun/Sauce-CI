@@ -30,7 +30,10 @@
                 <version>2.12.4</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <environment>${env.USER}</environment>
+                        <environment>${env.userName}</environment>
+                        <environment>${env.accessKey}</environment>
+                        <environment>${env.TestedBy}</environment>
+                        <environment>${env.QA_Link}</environment>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
