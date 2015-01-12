@@ -5,6 +5,7 @@ import org.junit.*;
 import org.junit.rules.TestName;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -36,7 +37,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 	 * user name and access key. To use the authentication supplied by environment variables or
 	 * from an external file, use the no-arg {@link SauceOnDemandAuthentication} constructor.
 	 */
-	public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication("fhumayun","a804f4e8-d94d-4872-805e-f28766906dca");
+	public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication("userName","accessKey");
 
 	/**
 	 * JUnit Rule which marks Sauce Jobs as passed/failed when the test succeeds or fails.
