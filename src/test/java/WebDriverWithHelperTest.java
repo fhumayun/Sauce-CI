@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 
 /**
- * This WebDriverWithHelperTest test shows you how to run your Selenium tests with
+ * This WebDriverWithHelperTest runs Selenium tests with
  * <a href="http://saucelabs.com/ondemand">Sauce OnDemand</a>.
  *
  * This test uses {@link RemoteWebDriver} and also includes the <a href="https://github.com/saucelabs/sauce-java/tree/master/junit">Sauce JUnit</a>
@@ -25,7 +25,6 @@ import static org.junit.Assert.assertEquals;
  * in the Sauce Jobs Report in your Jenkins projects, each test must implement the
  * {@link SauceOnDemandSessionIdProvider} interface as discussed in the code comments below.
  *
- * @author Ross Rowe
  */
 public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 
@@ -83,6 +82,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
         System.out.println("SauceOnDemandSessionID=" + sessionId);
         String QA_Link = Utils.readPropertyOrEnv("QA_Link", "");
         webDriver.get(QA_Link);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@After
