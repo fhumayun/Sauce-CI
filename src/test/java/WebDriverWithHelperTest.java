@@ -36,7 +36,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
      * user name and access key. To use the authentication supplied by environment variables or
      * from an external file, use the no-arg {@link SauceOnDemandAuthentication} constructor.
      */
-    public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication((System.getProperty("userName")),(System.getProperty("accessKey")));
+    public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication((System.getenv("userName")),(System.getenv("accessKey")));
     
     /**
      * JUnit Rule which marks Sauce Jobs as passed/failed when the test succeeds or fails.
@@ -71,9 +71,9 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 		//desiredCapabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
 		desiredCapabilities.setCapability("tags",System.getProperty("TestedBy"));
 		desiredCapabilities.setCapability("name", "HiC_QA_URL");
-		System.out.println("userName=" + System.getProperty("userName"));
-		System.out.println("accessKey=" + System.getProperty("accessKey"));
-		System.out.println("TestedBy" + System.getProperty("TestedBy"));
+		System.out.println("userName=" + System.getenv("userName"));
+		System.out.println("accessKey=" + System.getenv("accessKey"));
+		System.out.println("TestedBy" + System.getenv("TestedBy"));
         this.webDriver = new RemoteWebDriver(
                 new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
                 desiredCapabilities);
