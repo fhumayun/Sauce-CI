@@ -12,8 +12,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
-
 
 /**
  * This WebDriverWithHelperTest runs Selenium tests with
@@ -68,8 +66,13 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 		desiredCapabilities.setVersion(System.getenv("SELENIUM_VERSION"));
 		desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
 		desiredCapabilities.setCapability("record-video", true);
-		desiredCapabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
-
+		//desiredCapabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
+		desiredCapabilities.setCapability("tags",System.getenv("Run_By"));
+		desiredCapabilities.setCapability("name", "HiC_QA_URL");
+		System.out.println("userName=" + userName);
+		System.out.println("accessKey=" + accessKey);
+		System.out.println("Run by" + Run_by);
+		
 		this.webDriver = new RemoteWebDriver(
 				new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
 				desiredCapabilities);				
@@ -83,7 +86,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
         System.out.println("SauceOnDemandSessionID=" + sessionId);
         String QA_Link = Utils.readPropertyOrEnv("QA_Link", "");
         webDriver.get(QA_Link);
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@After
