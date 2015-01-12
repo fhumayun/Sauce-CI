@@ -1,5 +1,3 @@
-
-
 /**
  * @author Faisal
  */
@@ -39,7 +37,7 @@ import static org.testng.Assert.assertEquals;
  */
 @Listeners({SauceOnDemandTestListener.class})
 
-public class NicerMultiWebLauncher extends saucetest.SauceGetPropertyValues implements SauceOnDemandSessionIdProvider, SauceOnDemandAuthenticationProvider {
+public class NicerMultiWebLauncher implements SauceOnDemandSessionIdProvider, SauceOnDemandAuthenticationProvider {
 
 	/**
 	 * Constructs a {@link com.saucelabs.common.SauceOnDemandAuthentication} instance using the supplied user name/access key.  To use the authentication
@@ -103,12 +101,10 @@ public class NicerMultiWebLauncher extends saucetest.SauceGetPropertyValues impl
 		// Console level logging
 		logger.log(Level.INFO, "Running test using " + browser + " " + version + " " + os + " as job:" + name );
 		// Test QA Link below:
-		driver.get("http://www.pier1.com/Floral-Bloom-Pillow---Ivory/2812775,default,pd.html?cgid=solid_pillows&hiconversion_alternate=439UB7PoO4&hiconversion_baseline=true&hiconversion_flicker=visibility&hiconversion_flow=TRuZh11F6u&hiconversion_include=true&hiconversion_page=jqFEu90HS4&hiconversion_segment=fQnXWbiYuk&hiconversion_test=true");
-		// Set page title to ensure correct page is being tested
-		//assertEquals(driver.getTitle(), "Dodgeballs");
-		// introduce a minor timeout to prevent any on-demand problems.
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.quit();
+        String QA_Link = Utils.readPropertyOrEnv("QA_Link", "");
+        webDriver.get(QA_Link);
+		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		webDriver.quit();
 	}
 
 	public WebDriver getWebDriver() {
