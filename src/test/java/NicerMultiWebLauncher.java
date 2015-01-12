@@ -59,8 +59,8 @@ public class NicerMultiWebLauncher extends saucetest.SauceGetPropertyValues impl
 	@DataProvider(name = "sauceBrowserSet", parallel = true)
 	public static Object[][] sauceBrowserDataProvider(Method testMethod) {
 		return new Object[][]{
-				new Object[]{"SELENIUM_BROWSER", "SELENIUM_VERSION", "SELENIUM_PLATFORM","","","Browser1"},
-				new Object[]{"SELENIUM_BROWSER", "SELENIUM_VERSION", "SELENIUM_PLATFORM","","","Browser"},
+				new Object[]{"SELENIUM_BROWSER1", "SELENIUM_VERSION1", "SELENIUM_PLATFORM1","","","Browser1"},
+				new Object[]{"SELENIUM_BROWSER2", "SELENIUM_VERSION2", "SELENIUM_PLATFORM2","","","Browser2"},
 				//new Object[]{"iehta", "8", "Windows 7","","","Browser3"},
 				//new Object[]{"iehta", "9", "Windows 7","","","Browser4"},
 				//new Object[]{"iehta", "10", "Windows 7","","","Browser5"},
