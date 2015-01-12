@@ -33,6 +33,7 @@
                     <systemPropertyVariables>
                         <userName>${env.userName}</userName>
                         <accessKey>${env.accessKey}</accessKey>
+                        <jobName>${env.jobName}</jobName>
                         <TestedBy>${env.TestedBy}</TestedBy>
                         <QA_Link>${env.QA_Link}</QA_Link>
                     </systemPropertyVariables>
