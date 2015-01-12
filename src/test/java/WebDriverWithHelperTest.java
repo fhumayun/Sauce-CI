@@ -76,7 +76,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 		System.out.println("TestedBy" + System.getProperty("TestedBy"));
         this.webDriver = new RemoteWebDriver(
                 new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
-                capabilities);
+                desiredCapabilities);
         this.sessionId = ((RemoteWebDriver)webDriver).getSessionId().toString();
 
     }
