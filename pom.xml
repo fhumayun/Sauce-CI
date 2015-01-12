@@ -17,8 +17,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -30,10 +31,10 @@
                 <version>2.12.4</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <environment>${env.userName}</environment>
-                        <environment>${env.accessKey}</environment>
-                        <environment>${env.TestedBy}</environment>
-                        <environment>${env.QA_Link}</environment>
+                        <userName>${env.userName}</userName>
+                        <accessKey>${env.accessKey}</accessKey>
+                        <TestedBy>${env.TestedBy}</TestedBy>
+                        <QA_Link>${env.QA_Link}</QA_Link>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
