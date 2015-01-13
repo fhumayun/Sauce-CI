@@ -75,7 +75,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 		System.out.println("Access Key =" + System.getenv("accessKey"));
 		System.out.println("Job Name =" + System.getenv("jobName"));
 		System.out.println("Tested By =" + System.getenv("TestedBy"));
-		System.out.println("Spinning up a VM for " + System.getenv("SELENIUM_PLATFORM") + " using " + System.getenv("SELENIUM_BROWSER") + "version: " + System.getenv("SELENIUM_VERSION"));
+		System.out.println("Spinning up a VM for " + System.getenv("SELENIUM_PLATFORM") + " using " + System.getenv("SELENIUM_BROWSER") + " version: " + System.getenv("SELENIUM_VERSION"));
         this.webDriver = new RemoteWebDriver(
                 new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
                 desiredCapabilities);
